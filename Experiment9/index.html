@@ -1,0 +1,94 @@
+
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>Comment Box</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+       <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+    </head>
+    <body>
+        
+            <legend>Post your Comment:</legend>
+        <div ng-app="myApp" ng-controller="myCtrl">
+            <fieldset>
+            <textarea ng-model='abc'>Comment</textarea>
+            <input style='padding-top:40px;text-align: center;' type="button" value='post' ng-click="u()">
+            <h6>Comments</h6>
+            <ul type='none'>
+                <li ng-repeat="x in comm"><span>> </span>{{x}}</li>
+                
+            </ul>
+        
+        </fieldset>
+        <fieldset>
+            <legend>Calculator</legend>
+            
+                <input type='text' ng-model='a'><br>
+                <select ng-model='op'>
+                    <option>+</option>
+                    <option>-</option>
+                    <option>*</option>
+                    <option>/</option>
+                </select><br>
+                <input type='text' ng-model='b'><br>
+                <p >{{cal()}}</p>
+          
+        </fieldset>
+            <fieldset>
+                <legend>
+                    ToDo List
+                </legend>
+                 <input type='text' ng-model='abcd'>
+            <input type="button" value='Add' ng-click="ul()">
+            
+            <ul >
+                <li ng-repeat="y in lis">{{y}} <span ng-click="lis.splice($index, 1)" style='color:red;'>[del]</span></li>  
+            </ul>
+            </fieldset>
+        </div>
+        <script>
+            var app=angular.module("myApp",[]);
+            app.controller("myCtrl",function($scope){
+                $scope.comm=[];
+               $scope.u=function(){
+                  $scope.comm.push($scope.abc);
+               } ;
+                $scope.lis=[];
+               $scope.ul=function(){
+                  $scope.lis.push($scope.abcd);
+               } ;
+              
+                $scope.cal=function(){
+                  if($scope.op==='+'){
+                      return parseInt($scope.a)+parseInt($scope.b);
+                  }
+                  else if($scope.op==='-'){
+                      return parseInt($scope.a)-parseInt($scope.b);
+                  }
+                  else if($scope.op==='*'){
+                     return parseInt($scope.a)*parseInt($scope.b);
+                  }
+                  else if($scope.op==='/'){
+                    return parseInt($scope.a)/parseInt($scope.b);
+                  }
+              } ;
+              $scope.del=function(item){
+                  var index = $scope.lis.indexOf(item);
+                  $scope.lis.splice(index, 1); 
+              }
+            });
+            var app=angular.module("myApp2",[]);
+            app.controller("myCtrl2",function($scope){
+                
+              
+               
+            });
+            </script>
+    </body>
+</html>
