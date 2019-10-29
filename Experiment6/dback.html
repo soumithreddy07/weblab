@@ -1,0 +1,27 @@
+
+<html>
+    <head>
+        <title>Dynamic Background</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel='stylesheet' type="text/css" href='style.css'>
+    </head>
+    <body>
+       <nav>
+            <a href='index.html'>Digital Clock</a>
+            <a href='dback.html'>Dynamic Background</a>
+            <a href='mouse.html'>Changing Font Size</a>
+            <a href='car.html'>Moving Car</a>
+            <a href='student.html'>Student</a>
+        </nav>
+        
+        <script>
+            setInterval(function(){
+                var x = (Math.random()*255);
+                var y = (Math.random()*255);
+                var z = (Math.random()*255);
+                document.querySelector('body').style='background-color:rgb('+x+','+y+','+z+');transition-duration:0.5s;';
+            },700);
+        </script>    
+    </body>
+</html>

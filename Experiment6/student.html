@@ -1,0 +1,124 @@
+
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>Student</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" type="text/css" href="style.css">
+        <style>
+            form  p{
+                display:inline-block;
+            }
+            table{
+                table-layout: fixed;
+                
+            }
+            td{
+                width:50%;
+                padding:1%;
+            }
+            tr{
+                padding: 5%;
+            }
+            
+            .output-a div:nth-child(odd){
+                background-color: rgba(20,20,40,0.5);
+                color:white;
+            }
+            .output-b div:nth-child(odd){
+                background-color: rgba(20,20,40,0.5);
+                color:white;
+            }
+            .o{
+                margin: 2% 30%;
+                text-align: center;
+                border:0px solid black;
+                
+            }
+        </style>
+    </head>
+    <body>
+        <nav>
+            <a href='index.html'>Digital Clock</a>
+            <a href='dback.html'>Dynamic Background</a>
+            <a href='mouse.html'>Changing Font Size</a>
+            <a href='car.html'>Moving Car</a>
+            <a href='student.html'>Student</a>
+        </nav>
+        <div style="text-align: center;">
+            <form>
+                
+                <table width='90%;'style='padding:2%;' >
+                    <tr>
+                        <td style='text-align:right;'><p>Name:</p></td><td style='text-align:left;'><input class='inp' type="text" pattern ='[a-zA-Z]*' id='naam'required placeholder="Enter the Name"></td></tr>
+                   <tr><td style='text-align:right;'><p>Register No:</p></td><td style='text-align:left;'><input class='inp' type='text' id='reg' required placeholder='URKxxxxxxx'></td></tr>
+                   <tr><td style='text-align:right;'><p>Date of Birth:</p></td><td style='text-align:left;'><input class='inp' type='text' id='dobb' required pattern="[0-9]{0,2}-[0-9]{0,2}-[0-9]{4}" title="Follow the mentioned Format" placeholder='dd-mm-yyyy'></td></tr>
+                   
+            </form>
+                 </table>
+                <input class='btn' style='font-size:100%' type='button' value='Add More Students' id='subma'>
+        </div>
+        <div style='text-align:center; margin-top: 3%;'>
+            <p style='display:inline-block;'>Print Student Details:</p>
+            <input type='button' style='font-size:100%;' class='btn' id='print' value='Print'>
+        </div>
+    <center><p class='title1'></p></center>
+        
+        <div class='output-b o'>
+            
+        </div>
+        <center><p class='title2'></p></center>
+        <div class='output-a o'>
+            
+        </div>
+        
+       
+        <script>
+            
+                 
+            var student=[{name:'Raja',r_num:'urk17cs342',dob:'20-apr-1995'},{name:'Jonny',r_num:'urk17cs256',dob:'01-sept-2018'}];
+            function a(){
+                document.querySelector('.title1').innerHTML='Before 2000';
+                document.querySelector('.title2').innerHTML='After 2000';
+                document.querySelector('.output-a').style='border:1px solid #202045';
+                document.querySelector('.output-b').style='border:1px solid #202045';
+                var opb="";var opa="";
+                for(var i=0;i<student.length;i++){
+                    
+                if(parseInt(student[i].dob.substring(student[i].dob.length-4))<2000){
+                    opb+="<div><a>"+student[i].name+"'s Register Number is "+student[i].r_num+"</a></div>";
+                }
+                else{
+                     opa+="<div><a>"+student[i].name+"'s Register Number is "+student[i].r_num+'</a></div>';
+                }
+            }
+            document.querySelector('.output-b').innerHTML=opb;
+            document.querySelector('.output-a').innerHTML=opa;
+            }
+            
+            
+            document.querySelector('#print').addEventListener('click',a);
+                
+           document.querySelector('#subma').addEventListener('click',function(){
+               
+               var namea=document.querySelector('#naam');
+               var reg=document.querySelector('#reg');
+               var dobb=document.querySelector('#dobb');
+               
+               if(namea.checkValidity()&&reg.checkValidity()&&dobb.checkValidity()){
+                   student.push({name:namea.value,r_num:reg.value,dob:dobb.value});
+                   a();
+               }
+                else{
+                    alert("Please Enter the details in Given Format");
+                }
+                 
+           });
+        </script>
+    </body>
+</html>

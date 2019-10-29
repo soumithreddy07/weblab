@@ -1,0 +1,42 @@
+
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>Changing Font Size</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel='stylesheet' type='text/css' href='style.css'>
+        <style>
+            #md{
+                position:absolute;
+                top:30%;
+                width:100%;
+                right:15%;
+            }
+        </style>
+    </head>
+    <body>
+        <nav>
+            <a href='index.html'>Digital Clock</a>
+            <a href='dback.html'>Dynamic Background</a>
+            <a href='mouse.html'>Changing Font Size</a>
+            <a href='car.html'>Moving Car</a>
+            <a href='student.html'>Student</a>
+        </nav>
+        <div id='md' style='text-align: center; display: inline-block;'><p style='font-size:3rem;transition:1s;font-style: italic;'>Place Cursor Over This Text</p></div>
+        
+        <script>
+            document.getElementById('md').addEventListener('mouseover',function(){
+               document.querySelector('#md p').style='font-size:4rem;transition-duration:0.5s;';
+            });
+            document.getElementById('md').addEventListener('mouseout',function(){
+               document.querySelector('#md p').style='font-size:2rem;transition-duration:0.5s;';
+            });
+        </script>
+    </body>
+</html>

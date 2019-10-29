@@ -1,0 +1,84 @@
+
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>Moving Car</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" type='text/css' href='style.css'>
+        <style>
+            img{
+               position: absolute;
+               height:25%;
+               width:25%;
+               top:30%;
+            }
+            div input{
+                position: absolute;
+                top:60%;
+                left:40%;
+                
+            }
+            hr{
+                position: absolute;
+                top:45.5%;
+                width: 100%;
+            }
+        </style>
+    </head>
+    <body>
+        <nav>
+            <a href='index.html'>Digital Clock</a>
+            <a href='dback.html'>Dynamic Background</a>
+            <a href='mouse.html'>Changing Font Size</a>
+            <a href='car.html'>Moving Car</a>
+            <a href='student.html'>Student</a>
+        </nav>
+        <div> 
+            <img  id='ar' src="car.png">
+            <hr>
+            <input class='btn' type="button" id="start" value="Start">
+            <input class='btn' style='left:47.5%;' type="button" id="stop" value="Stop">
+            <input class='btn' style='left:55%' type='button' id='reset' value='Reset'>
+        
+        </div>
+       
+        <script>
+            var inte;
+            var f=false;
+            var x=30;
+            document.querySelector('#start').addEventListener('click',function(){
+                if(!f){
+               inte=setInterval(function(){
+                   document.getElementById('ar').style='left:'+x+"px;";
+                   x++;
+                if(parseInt(document.getElementById('ar').style.left)>1000){
+                    clearInterval(inte);
+                    f=false;
+                }
+               },10);
+               f=true;
+           }
+            });
+            document.querySelector('#stop').addEventListener('click',function(){
+               clearInterval(inte);
+               f=false;
+               
+                   
+            });
+            document.querySelector('#reset').addEventListener('click',function(){
+               document.getElementById('ar').style='left:'+0+"px;";
+               clearInterval(inte);
+               x=50;
+               f=false;
+               
+                   
+            });
+        </script>
+    </body>
+</html>

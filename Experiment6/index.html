@@ -1,0 +1,49 @@
+
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>Digital Clock</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" type="text/css" href="style.css">
+        <style>
+            #divv{
+                display:inline-block;
+                height:30%;
+                width:30%;
+                border-radius: 100%;
+                background-color:rgba(0,0,0,0.5);
+            }
+        </style>
+    </head>
+    <body>
+        <nav>
+            <a href='index.html'>Digital Clock</a>
+            <a href='dback.html'>Dynamic Background</a>
+            <a href='mouse.html'>Changing Font Size</a>
+            <a href='car.html'>Moving Car</a>
+            <a href='student.html'>Student</a>
+        </nav>
+        <h1>The Current Time Is:</h1>
+        <div  id='divv' style='text-align: center;'><p id='time' style='font-size: 5rem;'></p><p>*IST</p></div>
+        
+       
+        <script>
+            setInterval(function(){
+            
+                var d = new Date();
+                var h = parseInt(d.getHours());
+                var m = parseInt(d.getMinutes());
+                var s = parseInt(d.getSeconds());
+                document.getElementById('time').innerHTML=h+':'+m+":"+s;
+                
+                
+            },1000);
+        </script>
+    </body>
+</html>
