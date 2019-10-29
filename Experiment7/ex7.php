@@ -7,7 +7,7 @@
     </head>
     <body>
         <div>
-            <h1 style="color:red"> Label MN </h1>
+            <h1 style="color:red"> H & M </h1>
         </div>
          <div id="cloths">  </div>
         <div id="clr">
@@ -36,7 +36,7 @@
             Children:<input type="radio" name="d1" value="child">
             </div>
             <div>
-                <h3 style="display:inline-block;">Number</h3>
+                <h3 style="display:inline-block;">Quantity</h3>
                 <select name="qa">
                     <option>1</option>
                     <option>2</option>
@@ -63,7 +63,7 @@
                     <option>Red</option>
                     <option>Blue</option>
                     <option>Green</option>
-                    <option>Yellow</option>
+                    <option>Black</option>
                 </select>
                 
             </div>
