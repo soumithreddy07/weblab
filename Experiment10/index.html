@@ -1,0 +1,49 @@
+
+
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>Form Validation</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>      <style>
+            input.ng-invalid{
+                background-color:pink;
+            }
+            input.ng-valid{
+                background-color:lightgreen;
+            }
+        </style>
+    </head>
+    <body ng-app="formApp" ng-controller="ctrlr">
+        <form name='for'>
+        Name <input type="text" ng-model='emp.name' required><br>
+        E-Mail <input type='email' ng-model='emp.email' required><br>
+        <input type='radio' name='r1' ng-model='emp.specialization' value="Development">Development
+        <input type='radio' name='r1' ng-model='emp.specialization' value="Testing">Testing<br>
+        <input type='button' ng-click='reset()' value='reset'>
+        <input type='submit' ng-disabled='for.$invalid' ng-click='save(emp)' value='submit'>
+        </form>
+        <p>Form = {{emp}}</p>
+        <p>Master = {{master}}</p>
+        <script>
+            var app=angular.module('formApp',[]);
+            app.controller('ctrlr',function($scope){
+                $scope.master={};
+                $scope.save=function(emp){
+                  angular.copy(emp,$scope.master);
+              };
+              $scope.reset=function(){
+                angular.copy($scope.master,$scope.emp);  
+              };
+            });
+            
+            
+            </script>
+    </body>
+</html>
