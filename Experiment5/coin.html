@@ -1,0 +1,64 @@
+
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>Coin Flip</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel='stylesheet' type='text/css' href='styles.css'>
+        <style>
+            img{
+                height:30%;
+                width:30%;
+            }
+            p{
+                display:inline-block;
+            }
+        </style>
+    </head>
+    
+    <body>
+         <nav>
+            <table width="100%">
+                <tr>
+                    <td><a href="index.html">String Length</a></td>
+                    <td><a href="bmi.html">BMI Calculator</a></td>
+                    <td><a href="fruit.html">Fruit Farm</a></td>
+                    <td><a href="currency.html">The Currency Converter</a></td>
+                    <td><a href="coin.html">Coin Flip</a></td>
+                    <td><a href="cake.html">Birthday Cake Order</a></td>
+                </tr>
+            </table>         
+        </nav>
+        <div class='start'>
+            <h1>Heads or Tails?</h1>
+            <img src='' id='imga'><br>
+            <input id='flip' type="button" value="Flip!" ><br>
+            Heads : <p id="head">0</p><br>
+            Tails : <p id="tail">0</p>
+        </div>
+        <script>
+            document.getElementById('flip').addEventListener('click',function(){
+                var num = Math.floor((Math.random()*2)+1);
+                
+                if(num===1){
+                    document.getElementById('imga').src='head.jpg';
+                    
+                    document.getElementById('head').innerHTML=parseInt(document.getElementById('head').innerHTML)+1;
+                }
+                else{
+                    document.getElementById('imga').src='tail.jpg';
+                    document.getElementById('tail').innerHTML=parseInt(document.getElementById('tail').innerHTML)+1;
+                }
+                
+            });
+            
+        </script>
+
+    </body>
+</html>

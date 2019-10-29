@@ -1,0 +1,59 @@
+
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>Fruit Farm</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel='stylesheet' type='text/css' href='styles.css'>
+        
+    </head>
+    <body>
+        <nav>
+            <table width="100%">
+                <tr>
+                    <td><a href="index.html">String Length</a></td>
+                    <td><a href="bmi.html">BMI Calculator</a></td>
+                    <td><a href="fruit.html">Fruit Farm</a></td>
+                    <td><a href="currency.html">The Currency Converter</a></td>
+                    <td><a href="coin.html">Coin Flip</a></td>
+                    <td><a href="cake.html">Birthday Cake Order</a></td>
+                </tr>
+            </table>         
+        </nav>
+        <div class ='start' style='margin:5%;'>
+            <h1>Build a Fruit Farm</h1>
+            <fieldset>
+                <legend>Build Fruit Farm</legend>
+                Enter the No of Rows : <input type='text' id='rows'><br>
+                Enter the No of Columns : <input type='text' id='cols'><br>
+                <input type='button' value='Plant Garden' onclick='plant();'>
+            </fieldset>  
+            <div id='garden'></div>
+        </div>
+        <script>
+            function plant(){
+             rows=parseInt(document.getElementById('rows').value);
+             cols=parseInt(document.getElementById('cols').value);
+             for(var i=0;i<cols;i++){
+                 for (var j=0;j<rows;j++){
+                     var num=Math.floor((Math.random()*2)+1);
+                     if(num===1){
+                       document.getElementById('garden').innerHTML+='<img src="f1.jpg" width=100 height=100>';
+                   }
+                     else if(num===2){
+                         document.getElementById('garden').innerHTML+='<img src="f2.jpg" width=100 height=100>';
+                     }
+                 }
+                 document.getElementById('garden').innerHTML+='<br>';
+             }
+            }
+        </script>
+        
+    </body>
+</html>

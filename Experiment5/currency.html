@@ -1,0 +1,72 @@
+
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>Currency Converter</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel='stylesheet' type='text/css' href='styles.css'>
+        <style>
+            form *{
+                margin:1%;
+            }
+        </style>
+    </head>
+    <body>
+         <nav>
+            <table width="100%">
+                <tr>
+                    <td><a href="index.html">String Length</a></td>
+                    <td><a href="bmi.html">BMI Calculator</a></td>
+                    <td><a href="fruit.html">Fruit Farm</a></td>
+                    <td><a href="currency.html">The Currency Converter</a></td>
+                    <td><a href="coin.html">Coin Flip</a></td>
+                    <td><a href="cake.html">Birthday Cake Order</a></td>
+                </tr>
+            </table>         
+        </nav>
+        <div class='start' >
+            <h1>Currency Converter</h1>
+            <form>
+                <fieldset>
+                    <legend>Convert Currency</legend>
+                    Convert <input type='text' id='data' pattern='[0-9]*' placeholder='Enter Currency Value'><br>
+                    From <select id='from'>
+                        <option>Indian Rupee</option>
+                        <option>US Dollar</option>
+                    </select><br>
+                    To <select id='to'>
+                        <option>Indian Rupee</option>
+                        <option>US Dollar</option>
+                    </select><br>
+                    <input type="button" onclick="convert();" value="Convert">
+                    
+                </fieldset>
+                
+            </form>
+            <p id="resc"></p>
+        </div>
+        <script>
+            function convert(){
+                var from = document.getElementById('from').value;
+                var to = document.getElementById('to').value;
+                var data= parseInt(document.getElementById('data').value);
+                if(from===to){
+                    document.getElementById('resc').innerHTML = data+" "+from;
+                }
+                else if(from==='Indian Rupee'){
+                    document.getElementById('resc').innerHTML = data+" "+from+" is "+data*0.015+" "+to;
+                }
+                else{
+                    document.getElementById('resc').innerHTML = data+" "+from+" is "+data*67.12+" "+to;
+                }
+            }
+            </script>
+            
+    </body>
+</html>

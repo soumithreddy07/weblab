@@ -1,0 +1,60 @@
+
+.l<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>String Length</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel='stylesheet' type='text/css' href='styles.css'>
+    </head>
+    <body>
+        <nav>
+            <table width="100%">
+                <tr>
+                    <td><a href="index.html">String Length</a></td>
+                    <td><a href="bmi.html">BMI Calculator</a></td>
+                    <td><a href="fruit.html">Fruit Farm</a></td>
+                    <td><a href="currency.html">The Currency Converter</a></td>
+                    <td><a href="coin.html">Coin Flip</a></td>
+                    <td><a href="cake.html">Birthday Cake Order</a></td>
+                </tr>
+            </table>         
+        </nav>
+        <div class="start"  style='margin:5%;'>
+            <h1>Find the Shortest and Longest Word in a String</h1>
+            <form>
+                <fieldset style="padding:1.5%;">
+                    <legend>Longest and Shortest String</legend>
+                    <input type="text" id="stringlen" placeholder="Enter Any Text"><br><br>
+                    <input type="button" value="Get Shortest and Longest String" onclick="calString();">
+                </fieldset>
+            </form>
+            <p style='margin: 2%;' id='short'></p>
+            <p style='margin: 2%;' id='long'></p>
+        </div>
+        <script>
+          function calString(){
+              var str=document.getElementById('stringlen').value;
+              var a=str.split(' ');
+              var long="";
+              var short=str;
+              for(var i = 0;i<a.length;i++){
+                  if(a[i].length>long.length){
+                      long=a[i];
+                  }
+                  if(a[i].length<short.length){
+                      short=a[i];
+                  }
+              }
+              document.getElementById('long').innerHTML='Longest String is: "'+long+'"';
+              document.getElementById('short').innerHTML='Shortest String is: "'+short+'"';
+          }  
+        </script>
+        
+    </body>
+</html>

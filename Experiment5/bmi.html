@@ -1,0 +1,70 @@
+
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>BMI Calculator</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel='stylesheet' type='text/css' href='styles.css'>
+        <style>
+        input{
+            margin:1%;
+        }
+    </style>
+    </head>
+    
+    <body>
+        <nav>
+            <table width="100%">
+                <tr>
+                    <td><a href="index.html">String Length</a></td>
+                    <td><a href="bmi.html">BMI Calculator</a></td>
+                    <td><a href="fruit.html">Fruit Farm</a></td>
+                    <td><a href="currency.html">The Currency Converter</a></td>
+                    <td><a href="coin.html">Coin Flip</a></td>
+                    <td><a href="cake.html">Birthday Cake Order</a></td>
+                </tr>
+            </table>         
+        </nav>
+        <div  class ='start' style='margin:5%;'>
+            <h1>Calculate Your Body Mass Index (BMI)!</h1>
+            <fieldset>
+                <legend>BMI Calculator</legend>
+                Weight in (Kg) : <input type='text' id='weight' pattern='[0-9]*'><br>
+                Height in (m)  : <input type='text' id='height'><br>
+                <input type ='button' onclick='bmiCal();' value='Calculate BMI'>
+            </fieldset>
+            <p id='score'></p>
+            <p id='type'></p>
+        </div>
+        <script>
+        function bmiCal(){
+            h = parseFloat(document.getElementById('height').value);
+            w = parseFloat(document.getElementById('weight').value);
+            var bmi=w/(h*h);
+            var type;
+            if(bmi<18){
+                type='Underweight';
+            }
+            else if(bmi<=25){
+                type='Normal';
+            }
+            else if(bmi<=30){
+                type='Overweight';
+            }
+            else if(bmi>30){
+                type='Obese';
+            }
+            document.getElementById('score').innerHTML="Your BMI Score is : "+bmi;
+            document.getElementById('type').innerHTML="Your Body Type is : "+type;
+        }
+    </script>
+    
+    </body>
+    
+</html>

@@ -1,0 +1,62 @@
+
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>Birthday Cake Order</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel='stylesheet' type='text/css' href='styles.css'>
+       
+    </head>
+    <body>
+        <nav>
+            <table width="100%">
+                <tr>
+                    <td><a href="index.html">String Length</a></td>
+                    <td><a href="bmi.html">BMI Calculator</a></td>
+                    <td><a href="fruit.html">Fruit Farm</a></td>
+                    <td><a href="currency.html">The Currency Converter</a></td>
+                    <td><a href="coin.html">Coin Flip</a></td>
+                    <td><a href="cake.html">Birthday Cake Order</a></td>
+                </tr>
+            </table>  
+            
+        </nav>
+        <div class='start'>
+                <h1>Cake Order Form</h1>
+                <form>
+                    <fieldset>
+                        <legend>Enter Order Details</legend>
+                        No of 1/2Kg Cakes : <input type='text' id='small' pattern='[0-9]*'><br>
+                        No of 1Kg Cakes : <input type='text' id='med' pattern='[0-9]*'><br>
+                        No of 2Kg Cakes : <input type='text' id='large' pattern='[0-9]*'><br>
+                        <br>
+                        Tip : <input type='radio' name='tip' value="10">10%&nbsp;
+                        <input type='radio' name='tip' value='15' checked>15%&nbsp;
+                        <input type='radio' name='tip' value='20'>20%<br>
+                        <input type='button' id='sub' value='Calculate Order'>
+                    </fieldset>
+                </form>
+                Total Cost of Order : <span id='tot'></span>
+            </div>
+        <script>
+            document.getElementById('sub').addEventListener('click',function(){
+               var sm=parseFloat(document.getElementById('small').value);
+               var md=parseFloat(document.getElementById('med').value);
+               var lg=parseFloat(document.getElementById('large').value);
+               var tip=parseFloat(document.querySelector('input[name="tip"]:checked').value);
+               var tot = (sm*100)+(md*200)+(lg*400);
+               tot = (tot*(tip/100))+tot;
+               document.getElementById('tot').innerHTML='Rs.'+tot;
+               
+            });
+        </script>
+        
+    </body>
+</html>
+
